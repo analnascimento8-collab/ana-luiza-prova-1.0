@@ -1,0 +1,1380 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Jadoo - Viagens</title>
+
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #181E4B;
+    }
+
+
+    .navbar {
+      padding: 20px 5%;
+    }
+
+
+    .navbar-brand img {
+      object-fit: contain;
+    }
+
+
+    .hero {
+      padding: 55px 5%;
+    }
+
+
+    .hero h1 {
+      color: #181E4B;
+      font-family: Georgia, serif;
+      font-size: 55px;
+      line-height: 1.2;
+    }
+
+
+    .hero-img {
+      max-width: 520px;
+      width: 100%;
+    }
+
+
+    .services {
+      padding: 80px 0;
+      position: relative;
+    }
+
+
+    .section-title {
+      color: #181E4B;
+      font-family: Georgia, serif;
+      font-size: 46px;
+    }
+
+
+    .service-card {
+      border: 1px solid #dedede;
+      border-radius: 28px;
+      transition: 0.3s;
+      min-height: 275px;
+    }
+
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    }
+
+
+    .service-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+
+    .service-card h5 {
+      color: #181E4B;
+      font-size: 19px;
+      margin-bottom: 15px;
+    }
+
+
+    .service-card p {
+      color: #777;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+
+    .destinations {
+      padding: 60px 0 100px;
+    }
+
+
+    .destination-card {
+      border: none;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.07);
+      transition: 0.3s;
+      height: 100%;
+    }
+
+
+    .destination-card:hover {
+      transform: translateY(-8px);
+    }
+
+
+    .destination-card img {
+      width: 100%;
+      height: 285px;
+      object-fit: cover;
+    }
+
+
+    .destination-card .card-body {
+      padding: 22px;
+      color: #5E6282;
+    }
+
+
+    .destination-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 15px;
+    }
+
+
+    .trip-info {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+
+    .decoration {
+      position: absolute;
+      right: 5%;
+      top: 20px;
+      color: #c9c9d1;
+      opacity: 0.5;
+      font-size: 20px;
+      line-height: 2;
+      letter-spacing: 15px;
+      pointer-events: none;
+    }
+
+
+    /* SEÇÃO RESERVE SUA PRÓXIMA VIAGEM */
+
+
+    .booking-section {
+      padding: 100px 5%;
+      background-color: #fff;
+    }
+
+
+    .booking-subtitle {
+      color: #5E6282;
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+
+    .booking-title {
+      color: #181E4B;
+      font-family: Georgia, serif;
+      font-size: 42px;
+      font-weight: bold;
+      line-height: 1.3;
+      margin-bottom: 55px;
+    }
+
+
+    .booking-step {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 35px;
+    }
+
+
+    .step-icon {
+      min-width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 23px;
+    }
+
+
+    .step-yellow {
+      background-color: #F1C40F;
+    }
+
+
+    .step-orange {
+      background-color: #DF6951;
+    }
+
+
+    .step-blue {
+      background-color: #006380;
+    }
+
+
+    .step-text h5 {
+      color: #5E6282;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+
+    .step-text p {
+      color: #8A8A9E;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      max-width: 350px;
+    }
+
+
+    .booking-image {
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      object-fit: contain;
+    }
+
+
+    .booking-image-area {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    .booking-image-area::before {
+      content: "";
+      position: absolute;
+      width: 75%;
+      aspect-ratio: 1;
+      background-color: #E8F5FF;
+      filter: blur(65px);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+
+    .booking-image {
+      position: relative;
+      z-index: 1;
+    }
+
+
+    /* SEÇÃO DEPOIMENTOS */
+
+
+    .testimonials {
+      padding: 100px 5%;
+      background-color: #fff;
+    }
+
+
+    .testimonial-subtitle {
+      color: #5E6282;
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+
+    .testimonial-title {
+      color: #181E4B;
+      font-family: Georgia, serif;
+      font-size: 42px;
+      font-weight: bold;
+      line-height: 1.3;
+    }
+
+
+    .testimonial-card {
+      position: relative;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 45px 35px 30px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+      max-width: 500px;
+      margin: 30px auto;
+    }
+
+
+    .testimonial-avatar {
+      position: absolute;
+      top: -30px;
+      left: -25px;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      background-color: #65B8CE;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: bold;
+      border: 4px solid white;
+    }
+
+
+    .testimonial-card p {
+      color: #5E6282;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+
+    .testimonial-card h5 {
+      color: #181E4B;
+      font-size: 17px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+
+    .testimonial-card span {
+      color: #8A8A9E;
+      font-size: 13px;
+    }
+
+
+    .testimonial-dots {
+      display: flex;
+      gap: 18px;
+      margin-top: 45px;
+    }
+
+
+    .testimonial-dots span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background-color: #E5E5E5;
+    }
+
+
+    .testimonial-dots span:first-child {
+      background-color: #181E4B;
+    }
+
+
+    .testimonial-arrows {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      justify-content: center;
+      font-size: 24px;
+      color: #181E4B;
+    }
+
+
+    /* EMPRESAS PARCEIRAS */
+
+
+    .partners {
+      padding: 50px 5% 80px;
+    }
+
+
+    .partners img {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      object-fit: contain;
+    }
+
+
+    .partner-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+
+
+    .partner-card:hover {
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      background-color: white;
+    }
+
+
+    /* SEÇÃO DE INSCRIÇÃO */
+
+
+    .subscribe-section {
+      padding: 60px 5% 100px;
+    }
+
+
+    .subscribe-box {
+      position: relative;
+      background-color: #F8F7FC;
+      border: 1px solid #E5E3EF;
+      border-radius: 30px 30px 15px 15px;
+      padding: 65px 30px;
+      text-align: center;
+      overflow: visible;
+    }
+
+
+    .subscribe-box h2 {
+      color: #5E6282;
+      font-size: 25px;
+      font-weight: bold;
+      line-height: 1.8;
+      margin-bottom: 55px;
+    }
+
+
+    .subscribe-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+
+    .subscribe-input {
+      background-color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 18px 22px;
+      width: 360px;
+      max-width: 100%;
+      outline: none;
+      color: #5E6282;
+    }
+
+
+    .subscribe-button {
+      background-color: #FF806D;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 18px 35px;
+      transition: 0.3s;
+    }
+
+
+    .subscribe-button:hover {
+      background-color: #DF6951;
+      color: white;
+    }
+
+
+    .subscribe-send {
+      position: absolute;
+      top: -18px;
+      right: -18px;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7470F5, #4D35C5);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+    }
+
+
+    .subscribe-decoration {
+      position: absolute;
+      right: 5%;
+      bottom: 0;
+      color: #D8D6E5;
+      font-size: 22px;
+      letter-spacing: 12px;
+      line-height: 1.5;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 40px;
+      }
+
+
+      .section-title {
+        font-size: 34px;
+      }
+
+
+      .hero {
+        text-align: center;
+      }
+
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+
+      .destination-card img {
+        height: 250px;
+      }
+
+
+      .booking-section {
+        padding: 65px 6%;
+      }
+
+
+      .booking-title {
+        font-size: 32px;
+      }
+
+
+      .booking-image {
+        max-width: 420px;
+        margin-top: 30px;
+      }
+
+
+      .booking-step {
+        gap: 15px;
+      }
+
+
+      .testimonials {
+        padding: 65px 6%;
+      }
+
+
+      .testimonial-title {
+        font-size: 34px;
+      }
+
+
+      .testimonial-card {
+        margin: 45px 10px 20px;
+        padding: 40px 22px 25px;
+      }
+
+
+      .testimonial-avatar {
+        left: 10px;
+      }
+
+
+      .testimonial-arrows {
+        flex-direction: row;
+        margin-top: 15px;
+      }
+
+
+      .subscribe-box {
+        padding: 50px 20px;
+      }
+
+
+      .subscribe-box h2 {
+        font-size: 19px;
+        margin-bottom: 35px;
+      }
+
+
+      .subscribe-form {
+        flex-direction: column;
+      }
+
+
+      .subscribe-input,
+      .subscribe-button {
+        width: 100%;
+      }
+
+
+      .subscribe-send {
+        right: 5px;
+        top: -20px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+
+
+      <a class="navbar-brand" href="#">
+        <img src="img/Logo.png" alt="Jadoo" width="80">
+      </a>
+
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown">
+
+
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+
+        <ul class="navbar-nav mx-auto">
+
+
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Destinos</a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Hotéis</a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Voos</a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Reservas</a>
+          </li>
+
+
+        </ul>
+
+
+        <div class="d-flex align-items-center gap-3">
+          <a class="nav-link" href="#">Entrar</a>
+
+
+          <a href="#" class="btn btn-outline-dark">
+            Inscrever-se
+          </a>
+        </div>
+
+
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- CONTEÚDO PRINCIPAL -->
+
+
+  <div class="container-fluid hero">
+    <div class="row align-items-center">
+
+
+      <!-- TEXTO -->
+
+
+      <div class="col-lg-6">
+
+
+        <h6 class="fw-bold mb-4" style="color: #DF6951;">
+          MELHORES DESTINOS AO REDOR DO MUNDO
+        </h6>
+
+
+        <h1 class="fw-bold">
+          Viaje, aproveite
+          <br>
+          e viva uma nova
+          <br>
+          e plena vida
+        </h1>
+
+
+        <!-- BOTÕES -->
+
+
+        <div class="d-flex align-items-center gap-4 mt-5 hero-buttons">
+
+
+          <a href="#" class="btn btn-warning text-white px-4 py-3"
+            style="background-color: #F1A501; border: none;">
+
+
+            Saiba mais
+
+
+          </a>
+
+
+          <div class="d-flex align-items-center gap-3">
+
+
+            <button class="btn rounded-circle text-white"
+              style="background-color: #DF6951; width: 48px; height: 48px;">
+
+
+              ▶
+
+
+            </button>
+
+
+            <span class="text-secondary">
+              Play Demonstração
+            </span>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <!-- IMAGEM -->
+
+
+      <div class="col-lg-6 text-center position-relative mt-4 mt-lg-0">
+
+
+        <div class="rounded-circle position-absolute top-50 start-50 translate-middle"
+          style="background-color: #FFF1D5; width: 80%; max-width: 450px; aspect-ratio: 1; z-index: -1;">
+        </div>
+
+
+        <img src="img/mulher-bagagem.png"
+          alt="Mulher viajando"
+          class="img-fluid hero-img">
+
+
+      </div>
+    </div>
+  </div>  </div>
+  <!-- SEÇÃO DE SERVIÇOS -->
+
+
+  <section class="services text-center">
+
+
+    <!-- DECORAÇÃO -->
+
+
+    <div class="decoration">
+      + + + + +
+      <br>
+      + + + + +
+      <br>
+      + + + + +
+      <br>
+      + + + + +
+    </div>
+
+
+    <h6 class="fw-bold text-secondary mb-3">
+      CATEGORIA
+    </h6>
+
+
+    <h1 class="fw-bold section-title mb-5">
+      Oferecemos Os Melhores Serviços
+    </h1>
+
+
+    <div class="container">
+      <div class="row justify-content-center g-4">
+
+
+        <!-- PRIMEIRO CARTÃO -->
+
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card service-card h-100">
+            <div class="card-body p-4">
+
+
+              <div class="service-icon">🌤️</div>
+
+
+              <h5 class="card-title fw-bold">
+                Calculated Weather
+              </h5>
+
+
+              <p class="card-text">
+                Conheça as condições climáticas do seu destino.
+              </p>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- SEGUNDO CARTÃO -->
+
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card service-card h-100">
+            <div class="card-body p-4">
+
+
+              <div class="service-icon">✈️</div>
+
+
+              <h5 class="card-title fw-bold">
+                Best Flights
+              </h5>
+
+
+              <p class="card-text">
+                Encontre as melhores opções de voos para sua viagem.
+              </p>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- TERCEIRO CARTÃO -->
+
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card service-card h-100">
+            <div class="card-body p-4">
+
+
+              <div class="service-icon">🎙️</div>
+
+
+              <h5 class="card-title fw-bold">
+                Local Events
+              </h5>
+
+
+              <p class="card-text">
+                Descubra eventos e atrações nos destinos.
+              </p>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- QUARTO CARTÃO -->
+
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card service-card h-100">
+            <div class="card-body p-4">
+
+
+              <div class="service-icon">⚙️</div>
+
+
+              <h5 class="card-title fw-bold">
+                Customization
+              </h5>
+
+
+              <p class="card-text">
+                Personalize sua experiência de viagem.
+              </p>
+
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SEÇÃO PRINCIPAIS DESTINOS -->
+
+
+  <section class="destinations text-center">
+
+
+    <h6 class="fw-bold text-secondary mb-3">
+      Mais Vendido
+    </h6>
+
+
+    <h1 class="fw-bold section-title mb-5">
+      Principais Destinos
+    </h1>
+
+
+    <div class="container">
+      <div class="row justify-content-center g-4">
+
+
+        <!-- ROMA -->
+
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card destination-card">
+
+
+            <img src="img/roma.jpg"
+              class="card-img-top"
+              alt="Coliseu de Roma">
+
+
+            <div class="card-body">
+
+
+              <div class="destination-info">
+                <span>Roma, Itália</span>
+                <span>R$5,42 mil</span>
+              </div>
+
+
+              <div class="trip-info text-start">
+                <span>➤   Viagem de 10 Dias</span>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- LONDRES -->
+
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card destination-card">
+
+
+            <img src="img/londres.jpg"
+              class="card-img-top"
+              alt="Big Ben em Londres">
+
+
+            <div class="card-body">
+
+
+              <div class="destination-info">
+                <span>Londres, Reino Unido</span>
+                <span>R$4,2 mil</span>
+              </div>
+
+
+              <div class="trip-info text-start">
+                <span>➤   Viagem de 12 Dias</span>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- EUROPA -->
+
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card destination-card">
+
+
+            <img src="img/europa.jpg"
+              class="card-img-top"
+              alt="Destino turístico na Europa">
+
+
+            <div class="card-body">
+
+
+              <div class="destination-info">
+                <span>Todo a Europa</span>
+                <span>R$15 mil</span>
+              </div>
+
+
+              <div class="trip-info text-start">
+                <span>➤   Viagem de 28 Dias</span>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SEÇÃO RESERVE SUA PRÓXIMA VIAGEM -->
+
+
+  <section class="booking-section">
+
+
+    <div class="container-fluid">
+
+
+      <div class="row align-items-center">
+
+
+        <!-- LADO ESQUERDO: TEXTO E ETAPAS -->
+
+
+        <div class="col-lg-6">
+
+
+          <h6 class="booking-subtitle">
+            Easy and Fast
+          </h6>
+
+
+          <h1 class="booking-title">
+            Reserve Sua Próxima Viagem
+            <br>
+            Em 3 Etapas Fáceis
+          </h1>
+
+
+          <!-- PRIMEIRA ETAPA -->
+
+
+          <div class="booking-step">
+
+
+            <div class="step-icon step-yellow">
+              <i class="bi bi-map"></i>
+            </div>
+
+
+            <div class="step-text">
+
+
+              <h5>Choose Destination</h5>
+
+
+              <p>
+                Escolha o destino perfeito para sua próxima aventura.
+                Descubra lugares incríveis pelo mundo.
+              </p>
+
+
+            </div>
+          </div>
+
+
+          <!-- SEGUNDA ETAPA -->
+
+
+          <div class="booking-step">
+
+
+            <div class="step-icon step-orange">
+              <i class="bi bi-credit-card"></i>
+            </div>
+
+
+            <div class="step-text">
+
+
+              <h5>Make Payment</h5>
+
+
+              <p>
+                Realize o pagamento de forma simples e segura
+                para garantir sua viagem.
+              </p>
+
+
+            </div>
+          </div>
+
+
+          <!-- TERCEIRA ETAPA -->
+
+
+          <div class="booking-step">
+
+
+            <div class="step-icon step-blue">
+              <i class="bi bi-airplane"></i>
+            </div>
+
+
+            <div class="step-text">
+
+
+              <h5>Reach Airport on Selected Date</h5>
+
+
+              <p>
+                Prepare suas malas e chegue ao aeroporto
+                na data escolhida para começar sua aventura.
+              </p>
+
+
+            </div>
+          </div>
+
+
+        </div>
+
+
+        <!-- LADO DIREITO: IMAGEM -->
+
+
+        <div class="col-lg-6 booking-image-area">
+
+
+          <img
+            src="img/IMG_2157.png"
+            alt="Cartão de viagem para a Grécia"
+            class="booking-image"
+          >
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+  <!-- SEÇÃO DE DEPOIMENTOS -->
+
+
+  <section class="testimonials">
+
+
+    <div class="container-fluid">
+
+
+      <div class="row align-items-center">
+
+
+        <!-- TÍTULO -->
+
+
+        <div class="col-lg-5">
+
+
+          <h6 class="testimonial-subtitle">
+            DEPOIMENTOS
+          </h6>
+
+
+          <h1 class="testimonial-title">
+            O Que As Pessoas Dizem
+            <br>
+            Sobre Nós.
+          </h1>
+
+
+          <!-- BOLINHAS -->
+
+
+          <div class="testimonial-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+
+        </div>
+
+
+        <!-- CARTÃO DE DEPOIMENTO -->
+
+
+        <div class="col-lg-6">
+
+
+          <div class="testimonial-card">
+
+
+            <div class="testimonial-avatar">
+              MT
+            </div>
+
+
+            <p>
+              "Na postagem pintada das janelas, ainda assim
+              suas festas expressas usam. Certamente, por
+              último, ele mesmo sabia o que viria a seguir.
+              Acreditou ou se desviou, não."
+            </p>
+
+
+            <h5>
+              Mike Taylor
+            </h5>
+
+
+            <span>
+              Lahore, Paquistão
+            </span>
+
+
+          </div>
+
+
+        </div>
+
+
+        <!-- SETAS -->
+
+
+        <div class="col-lg-1">
+
+
+          <div class="testimonial-arrows">
+
+
+            <span>⌃</span>
+            <span>⌄</span>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- SEÇÃO EMPRESAS PARCEIRAS -->
+
+
+  <section class="partners">
+
+
+    <div class="container">
+
+
+      <div class="row align-items-center justify-content-center g-4">
+
+
+        <!-- LOGOS DAS EMPRESAS -->
+
+
+        <div class="col-12 text-center">
+
+
+          <img
+            src="img/IMG_2160.png"
+            alt="Empresas parceiras: Axon, Jetstar, Expedia, Qantas e Alitalia"
+            style="max-width: 100%; width: 100%; height: auto;"
+          >
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- SEÇÃO DE INSCRIÇÃO -->
+
+
+  <section class="subscribe-section">
+
+
+    <div class="container">
+
+
+      <div class="subscribe-box">
+
+
+        <!-- ÍCONE DE AVIÃO -->
+
+
+        <div class="subscribe-send">
+          <i class="bi bi-send-fill"></i>
+        </div>
+
+
+        <!-- TÍTULO -->
+
+
+        <h2>
+          Inscreva-se para receber informações, últimas notícias
+          <br>
+          e outras ofertas interessantes sobre a Jadoo.
+        </h2>
+
+
+        <!-- FORMULÁRIO -->
+
+
+        <form class="subscribe-form"
+          onsubmit="event.preventDefault(); alert('Inscrição realizada!');">
+
+
+          <input
+            type="email"
+            class="subscribe-input"
+            placeholder="✉  Seu e-mail"
+            required
+          >
+
+
+          <button type="submit" class="subscribe-button">
+            Inscreva-se
+          </button>
+
+
+        </form>
+
+
+        <!-- DECORAÇÃO -->
+
+
+        <div class="subscribe-decoration">
+          + + + +
+          <br>
+          + + + +
+          <br>
+          + + + +
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- BOOTSTRAP JAVASCRIPT -->
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>
